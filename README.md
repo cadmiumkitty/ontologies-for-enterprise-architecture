@@ -18,14 +18,13 @@ We have then amended the description using [SKOS](https://www.w3.org/2004/02/sko
 
 ## Guru Associates example
 
- 1. [data/ea/ea.ttl](data/ea/ea.ttl) contains description of the enterprise architecture of a fictitious consulting company Guru Associates.
- 1. [data/ea/ea.ttl](data/ea/ea.ttl) contains links from Guru Associates enterprise architecture data elements to [UK Data Protection Act 1998](http://www.legislation.gov.uk/ukpga/1998/29/section/1). Specifically in this example we are using [http://www.legislation.gov.uk/ukpga/1998/29](http://www.legislation.gov.uk/ukpga/1998/29) referring to overall data Protection Act 1998 and   [http://www.legislation.gov.uk/ukpga/1998/29/section/1#term-personal-data](http://www.legislation.gov.uk/ukpga/1998/29/section/1#term-personal-data) referring to the definition of personal data. [http://www.legislation.gov.uk/ukpga/1998/29/section/7](http://www.legislation.gov.uk/ukpga/1998/29/section/7) referring to the right of access to personal data.
- 1. [data/ea/ea.ttl](data/ea/ea.ttl) contains links from Guru Associates enterprise architecture data elements to geonames identifiers of locations where data is physically stored.
- 1. [date/updates/20170113.sparql](date/updates/20170113.sparql) and [date/updates/20170114.sparql](date/updates/20170114.sparql) contain simple queries to drive the prototype - they pick elements of the enterprise architecture described in [data/ea/ea.ttl](data/ea/ea.ttl) that are affected by law changes.
+ 1. [data/ea.ttl](data/ea.ttl) contains description of the enterprise architecture of a fictitious consulting company Guru Associates.
+ 1. [data/ea.ttl](data/ea.ttl) contains links from Guru Associates enterprise architecture data elements to [UK Data Protection Act 1998](http://www.legislation.gov.uk/ukpga/1998/29/section/1). Specifically in this example we are using [http://www.legislation.gov.uk/ukpga/1998/29](http://www.legislation.gov.uk/ukpga/1998/29) referring to overall data Protection Act 1998 and   [http://www.legislation.gov.uk/ukpga/1998/29/section/1#term-personal-data](http://www.legislation.gov.uk/ukpga/1998/29/section/1#term-personal-data) referring to the definition of personal data. [http://www.legislation.gov.uk/ukpga/1998/29/section/7](http://www.legislation.gov.uk/ukpga/1998/29/section/7) referring to the right of access to personal data.
+ 1. [data/ea.ttl](data/ea.ttl) contains links from Guru Associates enterprise architecture data elements to geonames identifiers of locations where data is physically stored.
 
 ## Interesting queries
 
-Once [guru-ea.ttl](guru-ea.ttl) is loaded into a triple store of your choice, you can start issuing queries or applying reasoning on top of it.
+Once [data/ea.ttl](data/ea.ttl) and [https://sites.google.com/site/ontologyprojects/home/togaf-core-content-metamodel/file-cabinet/OntologyTOGAFContentMetamodelV1.xml](https://sites.google.com/site/ontologyprojects/home/togaf-core-content-metamodel/file-cabinet/OntologyTOGAFContentMetamodelV1.xml?attredirects=0&d=1) are loaded into a triple store of your choice, you can start issuing queries or applying reasoning on top of it.
 
 ### What data entities are affected by a change in legislation and where are they hosted
 
@@ -102,7 +101,7 @@ WHERE {
 ### Dependencies
 
 You'll need [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) and [Apache Maven 3.3.x](https://maven.apache.org/).
-Node and NPM are downloaded as part of the build using [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin).
+Node and NPM are downloaded as part of the build using [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin). You also need the network connection to make sure that [https://sites.google.com/site/ontologyprojects/home/togaf-core-content-metamodel/file-cabinet/OntologyTOGAFContentMetamodelV1.xml?attredirects=0&d=1](https://sites.google.com/site/ontologyprojects/home/togaf-core-content-metamodel/file-cabinet/OntologyTOGAFContentMetamodelV1.xml?attredirects=0&d=1) can be loaded.
 
 ### Building
 
