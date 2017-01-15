@@ -1,0 +1,207 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2008/05/skos#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfg: <http://www.w3.org/2004/03/trix/rdfg-1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix xhtml: <http://www.w3.org/1999/xhtml> .
+@prefix xhv: <http://www.w3.org/1999/xhtml/vocab#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix togaf: <http://www.semanticweb.org/ontologies/2010/0/OntologyTOGAFContentMetamodel.owl#>
+@prefix : <http://semanticweblondon.com/> .
+
+@base <http://semanticweblondon.com/> .
+
+:guruassociates a foaf:Organization ;
+  rdfs:comment "Guru Associates" .
+
+
+<http://sws.geonames.org/2643743/> a togaf:Location ;
+  rdfs:comment "London office of Guru Associates" .
+
+<http://sws.geonames.org/2964574/> a togaf:Location ;
+rdfs:comment "Dublin Amazon datacenter" .
+
+
+:consulting a togaf:OrganizationUnit ;
+  rdfs:comment "Consulting organization within Guru Associates" ;
+  togaf:isMotivatedBy :rewardandgrowth ;
+  togaf:ouContains :partner, :senior, :junior, :officemanager, :cfo ;
+  togaf:ouOwns :marketingandclientrelations, :supervisionandcoordinationofprojects, :technicaltasksontheproject, :manageoffice, :manageliquidityandsolvency, :interviewandhirepeople .
+
+
+:rewardandgrowth a togaf:Driver ;
+  rdfs:comment "Going by definition from David Maister. To deliver outstanding client service; to provide fulfilling careers and professional satisfaction for our people; and to achieve financial success so that we can reward ourselves and grow" ;
+  togaf:createsGoal :profitability, :satisfaction, :service .
+
+
+:profitability a togaf:Goal ;
+  rdfs:comment "Achieve financial success" .
+
+:satisfaction a togaf:Goal ;
+  rdfs:comment "Provide fulfilling careers and professional satisfaction for our people" .
+
+:service a togaf:Goal ;
+  rdfs:comment "Deliver outstanding client service" .
+
+
+:partner a togaf:Actor ;
+  rdfs:comment "Partner in Guru Associates" ;
+  togaf:interactsWithAndOrPerforms :marketingandclientrelations, :interviewandhirepeople .
+
+:senior a togaf:Actor ;
+  rdfs:comment "Senior in Guru Associates" ;
+  togaf:interactsWithAndOrPerforms :supervisionandcoordinationofprojects, :interviewandhirepeople .
+
+:junior a togaf:Actor ;
+  rdfs:comment "Junior in Guru Associates" ;
+  togaf:interactsWithAndOrPerforms :technicaltasksontheproject, :interviewandhirepeople .
+
+:officemanager a togaf:Actor ;
+  rdfs:comment "Assistant in Guru Associates" ;
+  togaf:interactsWithAndOrPerforms :manageoffice .
+
+:cfo a togaf:Actor ;
+  rdfs:comment "Chief Financial Officer in Guru Associates" ;
+  togaf:interactsWithAndOrPerforms :manageliquidityandsolvency .
+
+
+:marketingandclientrelations a togaf:Function ;
+  rdfs:comment "Marketing and Client Relations" ;
+  togaf:supportsOrIsRealizedByProcess :maintaindetailsofclients .
+
+:supervisionandcoordinationofprojects a togaf:Function ;
+  rdfs:comment "Supervision and Coordination of Projects" ;
+  togaf:supportsOrIsRealizedByProcess :maintaindetailsofprojects .
+
+:technicaltasksontheproject a togaf:Function ;
+  rdfs:comment "Technical Tasks on the Project" ;
+  togaf:supportsOrIsRealizedByProcess :recordbillablehours .
+
+:manageoffice a togaf:Function ;
+  rdfs:comment "Manage office" ;
+  togaf:supportsOrIsRealizedByProcess :ordercoffee .
+
+:manageliquidityandsolvency a togaf:Function ;
+  rdfs:comment "Manage liquidity and solvency" ;
+  togaf:supportsOrIsRealizedByProcess :payinvoicesfromsuppliers, :collectmoneyfromclients .
+
+:interviewandhirepeople a togaf:Function ;
+  rdfs:comment "Interview and hire people" ;
+  togaf:supportsOrIsRealizedByProcess :scheduleinterviews .
+
+
+:maintaindetailsofclients a togaf:Process ;
+  rdfs:comment "Maintain details of clients" .
+
+:maintaindetailsofprojects a togaf:Process ;
+  rdfs:comment "Maintain details of projects" .
+
+:recordbillablehours a togaf:Process ;
+  rdfs:comment "Record billable hours" .
+
+:ordercoffee a togaf:Process ;
+  rdfs:comment "Order coffee" .
+
+:payinvoicesfromsuppliers a togaf:Process ;
+  rdfs:comment "Pay invoices from suppliers" .
+
+:collectmoneyfromclients a togaf:Process ;
+  rdfs:comment "Collect money from clients" .
+
+:scheduleinterviews a togaf:Process ;
+  rdfs:comment "Schedule interviews" ;
+  togaf:orchestratesAndOrDecomposesBS :recruitmentmanagement .
+
+
+:recruitmentmanagement a togaf:BusinessService ;
+  rdfs:comment "Recruitment Management" ;
+  togaf:isImplementedOnLTC :interviewschedulerLTC ;
+  togaf:providesConsumesDE :candidatefirstname, :candidatelastname, :candidateresume, :candidateunion .
+
+
+:interviewschedulingservice a togaf:InformationSystemService ;
+  rdfs:comment "Interview scheduling service" ;
+  togaf:ISRealizesBS :recruitmentmanagement .
+
+
+:interviewschedulerLAC a togaf:LogicalApplicationComponent ;
+  rdfs:comment "Interview scheduler application" ;
+  togaf:isRealizedByPAC :interviewschedulerPAC ;
+  togaf:isRealizedThroughISS :interviewschedulingservice ;
+  togaf:operatesOnDE :candidatefirstname, :candidatelastname, :candidateresume, :candidateunion .
+
+
+:interviewschedulerPAC a togaf:PhysicalApplicationComponent ;
+  rdfs:comment "Interview scheduler application" ;
+  togaf:encapsulatesPDC :candidatedatabse, :candidateawsbucket ;
+  togaf:isRealizedByPTC :interviewer100 .
+
+
+:interviewdate a togaf:DataEntity ;
+  rdfs:comment "Interview date" ;
+  togaf:residesWithinLDC :candidaterecord .
+
+:candidatefirstname a togaf:DataEntity ;
+  rdfs:comment "Candidate first name" ;
+  togaf:residesWithinLDC :candidaterecord .
+
+:candidatelastname a togaf:DataEntity ;
+  rdfs:comment "Candidate last name" ;
+  togaf:residesWithinLDC :candidaterecord .
+
+:candidateresume a togaf:DataEntity ;
+  rdfs:comment "Candidate resume" ;
+  togaf:residesWithinLDC :candidatemedia .
+
+:candidateunion a togaf:DataEntity ;
+  rdfs:comment "Candidate's professional union" ;
+  togaf:residesWithinLDC :candidaterecord .
+
+
+:interviewrecord a togaf:LogicalDataComponent ;
+  rdfs:comment "Interview record" ;
+  togaf:isRealizedByPDC :interviewdatabse.
+
+:candidaterecord a togaf:LogicalDataComponent ;
+  rdfs:comment "Candidate personal details" ;
+  togaf:isRealizedByPDC :candidatedatabse.
+
+:candidatemedia a togaf:LogicalDataComponent ;
+  rdfs:comment "Candidate personal details" ;
+  togaf:isRealizedByPDC :candidateawsbucket.
+
+
+:interviewdatabse a togaf:PhysicalDataComponent ;
+  rdfs:comment "Inderview schedule details record containing date, time, etc" ;
+  togaf:pDCIsHostedIn <http://sws.geonames.org/2643743/> .
+
+:candidatedatabse a togaf:PhysicalDataComponent ;
+  rdfs:comment "Candidate details record containing name, etc" ;
+  togaf:pDCIsHostedIn <http://sws.geonames.org/2643743/> .
+
+:candidateawsbucket a togaf:PhysicalDataComponent ;
+  rdfs:comment "Candidate media containing resume, interview recording, etc" ;
+  togaf:pDCIsHostedIn <http://sws.geonames.org/2964574/> .
+
+
+:interviewer100 a togaf:PhysicalTechnologyComponent ;
+  rdfs:comment "Interviewer version 1.0.0" ;
+  togaf:pTCIsHostedIn <http://sws.geonames.org/2643743/> .
+
+
+:candidatefirstname skos:related <http://www.legislation.gov.uk/ukpga/1998/29/section/1#term-personal-data> .
+
+:candidatelastname skos:related <http://www.legislation.gov.uk/ukpga/1998/29/section/1#term-personal-data> .
+
+:candidateresume skos:related <http://www.legislation.gov.uk/ukpga/1998/29/section/1#term-personal-data> .
+
+
+:candidateunion skos:related <http://www.legislation.gov.uk/ukpga/1998/29/section/2#term-sensitive-personal-data> .
