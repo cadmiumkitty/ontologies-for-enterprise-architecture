@@ -51,7 +51,7 @@ const reducer = (state = {
 						(event, index) => { 
 							return index === action.index ? 
 									Object.assign({}, event, {open: true, impact: null, progress: true, error: false}) : 
-									Object.assign({}, event, {open: false}) })
+									Object.assign({}, event, {open: false, impact: null, progress:false, error:false}) })
 			};
 		case IMPACT_DATA_RECEIVED:
 			return {
@@ -60,7 +60,7 @@ const reducer = (state = {
 						(event, index) => { 
 							return index === action.index ? 
 									Object.assign({}, event, {open: true, impact: action.impact, progress: false, error: false}) : 
-									Object.assign({}, event, {open: false}) })
+									Object.assign({}, event, {open: false, impact: null, progress:false, error:false}) })
 			};
 		case IMPACT_DATA_ERROR:
 			return {
@@ -69,7 +69,7 @@ const reducer = (state = {
 						(event, index) => { 
 							return index === action.index ? 
 									Object.assign({}, event, {open: true, impact: null, progress: false, error: true}) : 
-									Object.assign({}, event, {open: false}) })
+									Object.assign({}, event, {open: false, impact: null, progress:false, error:false}) })
 			};
 		default:
 			return state;
