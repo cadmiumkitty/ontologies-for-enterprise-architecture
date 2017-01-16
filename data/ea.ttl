@@ -26,8 +26,8 @@
 <http://sws.geonames.org/2643743/> a togaf:Location ;
   rdfs:comment "London office of Guru Associates" .
 
-<http://sws.geonames.org/2964574/> a togaf:Location ;
-rdfs:comment "Dublin Amazon datacenter" .
+<http://sws.geonames.org/5746545/> a togaf:Location ;
+rdfs:comment "Portland, OR Amazon datacenter" .
 
 
 :consulting a togaf:OrganizationUnit ;
@@ -189,7 +189,7 @@ rdfs:comment "Dublin Amazon datacenter" .
 
 :candidateawsbucket a togaf:PhysicalDataComponent ;
   rdfs:comment "Candidate media containing resume, interview recording, etc" ;
-  togaf:pDCIsHostedIn <http://sws.geonames.org/2964574/> .
+  togaf:pDCIsHostedIn <http://sws.geonames.org/5746545/> .
 
 
 :interviewer100 a togaf:PhysicalTechnologyComponent ;
