@@ -14,7 +14,7 @@
 @prefix dcmit: <http://purl.org/dc/dcmitype/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix gn: <http://www.geonames.org/ontology#> .
-@prefix togaf: <http://www.semanticweb.org/ontologies/2010/0/OntologyTOGAFContentMetamodel.owl#>
+@prefix togaf: <http://www.semanticweb.org/ontologies/2010/0/OntologyTOGAFContentMetamodel.owl#> .
 @prefix : <http://semanticweblondon.com/> .
 
 @base <http://semanticweblondon.com/> .
